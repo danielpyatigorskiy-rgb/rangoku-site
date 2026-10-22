@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кёджуро Ренгоку — Главная</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: #fff3d2;
+            color: #5b210d;
+            font-family: "Compact", "Arial Narrow", sans-serif;
+            margin: 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 18px;
+            background: #ffd166;
+        }
+
+        .menu a {
+            padding: 10px 18px;
+            background: #dc3512;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #f28a00;
+            border-radius: 8px;
+        }
+
+        .menu a:hover {
+            background: #a9270d;
+        }
+
+        .home-page {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .home-page h1 {
+            color: #d93612;
+            text-align: center;
+            font-size: 42px;
+            text-shadow: 2px 2px #ffc928;
+        }
+
+        .intro-card,
+        .flame-game,
+        .rengoku-quiz {
+            background: #fffaf0;
+            border: 3px solid #f28a00;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 30px auto;
+            box-shadow: 0 5px 15px rgba(180, 70, 0, 0.2);
+        }
+
+        .intro-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .intro-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .intro-card h2,
+        .flame-game h2,
+        .rengoku-quiz h2 {
+            color: #d93612;
+            text-shadow: 1px 1px #ffc928;
+        }
+
+        .intro-card p,
+        .intro-card li {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .intro-image {
+            flex: 0 0 35%;
+            max-width: 350px;
+        }
+
+        .intro-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 2px solid #f28a00;
+            border-radius: 12px;
+        }
+
+        .footer {
+            padding: 20px;
+            background: #ffd166;
+            color: #5b210d;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Игра «Пламенный удар» */
+
+        .flame-game {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .game-arena {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+            overflow: hidden;
+            background: #ffe5a3;
+            border: 3px solid #f28a00;
+            border-radius: 12px;
+        }
+
+        #demonTarget {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            background: transparent;
+            font-size: 48px;
+            cursor: pointer;
+        }
+
+        .game-button,
+        .quiz-buttons button,
+        #quizRetry {
+            padding: 12px 20px;
+            background: #dc3512;
+            color: white;
+            border: 2px solid #f28a00;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .game-button:hover,
+        .quiz-buttons button:hover,
+        #quizRetry:hover {
+            background: #a9270d;
+        }
+
+        /* Викторина */
+
+        .rengoku-quiz {
+            max-width: 800px;
+        }
+
+        .rengoku-quiz > h2 {
+            text-align: center;
+        }
+
+        .quiz-progress {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .quiz-question {
+            display: none;
+            padding: 18px;
+            border: 2px solid #ffd166;
+            border-radius: 12px;
+        }
+
+        .quiz-question.active {
+            display: block;
+        }
+
+        .quiz-question p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-question label {
+            display: block;
+            padding: 9px;
+            cursor: pointer;
+        }
+
+        .quiz-question input {
+            accent-color: #dc3512;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .quiz-result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #d93612;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 700px) {
+            .home-page {
+                width: 92%;
+            }
+
+            .home-page h1 {
+                font-size: 32px;
+            }
+
+            .intro-layout {
+                flex-direction: column;
+            }
+
+            .intro-image {
+                flex: auto;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .intro-card,
+            .flame-game,
+            .rengoku-quiz {
+                padding: 16px;
+            }
+
+            .game-arena {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Меню сайта -->
+    <nav class="menu">
+        <a href="index2.html">Главная</a>
+        <a href="appearance.html">Внешний вид</a>
+        <a href="role.html">Роль и техники</a>
+    </nav>
+
+    <!-- Главная страница -->
+    <main class="home-page">
+        <h1>🔥 Кёджуро Ренгоку 🔥</h1>
+
+        <section class="intro-card">
+            <div class="intro-layout">
+                <div class="intro-text">
+                    <h2>Кто такой Кёджуро Ренгоку?</h2>
+
+                    <p>
+                        Кёджуро Ренгоку — один из главных персонажей аниме
+                        «Клинок, рассекающий демонов». Он занимает должность
+                        Пламенного столпа и сражается с демонами, защищая людей.
+                    </p>
+
+                    <h2>Интересные факты</h2>
+
+                    <ul>
+                        <li>Ренгоку использует Дыхание Пламени.</li>
+                        <li>Он известен своей смелостью и добротой.</li>
+                        <li>Он очень любит вкусную еду, особенно бэнто.</li>
+                        <li>Его знаменитый девиз — «Зажги своё сердце!»</li>
+                    </ul>
+
+                    <h2>Его цель</h2>
+
+                    <p>
+                        Ренгоку верит, что сильные должны защищать слабых.
+                        Даже перед лицом опасности он старается оставаться
+                        верным своим убеждениям.
+                    </p>
+                </div>
+
+                <div class="intro-image">
+                    <img
+                        src="Rengoku.png"
+                        alt="Кёджуро Ренгоку из аниме Клинок, рассекающий демонов"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- Игра -->
+        <section class="flame-game">
+            <h2>🔥 Игра: Пламенный удар</h2>
+
+            <p>
+                У тебя есть 30 секунд! Нажимай на демона, чтобы набрать очки.
+            </p>
+
+            <div class="game-info">
+                <span>Очки: <span id="gameScore">0</span></span>
+                <span>Время: <span id="gameTime">30</span> сек.</span>
+            </div>
+
+            <p>
+                <button class="game-button" id="gameStart">
+                    Начать игру
+                </button>
+            </p>
+
+            <div class="game-arena" id="gameArena">
+                <button id="demonTarget" aria-label="Ударить демона" hidden>
+                    👹
+                </button>
+            </div>
+
+            <p id="gameMessage" aria-live="polite">
+                Готов применить Пламенный удар?
+            </p>
+        </section>
+
+        <!-- Викторина -->
+        <section class="rengoku-quiz" id="rengokuQuiz">
+            <h2>🔥 Викторина по Ренгоку</h2>
+
+            <p style="text-align:center;">
+                Проверь свои знания о Пламенном столпе!
+            </p>
+
+            <div class="quiz-progress" id="quizProgress">
+                Вопрос 1 из 5
+            </div>
+
+            <form id="quizForm">
+                <div class="quiz-question">
+                    <p>1. Какой титул носит Ренгоку?</p>
+                    <label><input type="radio" name="q1" value="a"> Водный столп</label>
+                    <label><input type="radio" name="q1" value="b"> Пламенный столп</label>
+                    <label><input type="radio" name="q1" value="c"> Звуковой столп</label>
+                    <label><input type="radio" name="q1" value="d"> Каменный столп</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p>2. Какую технику использует Ренгоку?</p>
+                    <label><input type="radio" name="q2" value="a"> Дыхание Воды</label>
+                    <label><input type="radio" name="q2" value="b"> Дыхание Тумана</label>
+                    <label><input type="radio" name="q2" value="c"> Дыхание Пламени</label>
+                    <label><input type="radio" name="q2" value="d"> Дыхание Зверя</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p>3. Как зовут младшего брата Ренгоку?</p>
+                    <label><input type="radio" name="q3" value="a"> Танджиро</label>
+                    <label><input type="radio" name="q3" value="b"> Муичиро</label>
+                    <label><input type="radio" name="q3" value="c"> Санеми</label>
+                    <label><input type="radio" name="q3" value="d"> Сенджуро</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p>4. Как называется девятая форма Дыхания Пламени?</p>
+                    <label><input type="radio" name="q4" value="a"> Рэнгоку</label>
+                    <label><input type="radio" name="q4" value="b"> Пламенный дракон</label>
+                    <label><input type="radio" name="q4" value="c"> Огненный вихрь</label>
+                    <label><input type="radio" name="q4" value="d"> Пылающая звезда</label>
+                </div>
+
+                <div class="quiz-question">
+                    <p>5. Какое качество особенно отличает Ренгоку?</p>
+                    <label><input type="radio" name="q5" value="a"> Трусость</label>
+                    <label><input type="radio" name="q5" value="b"> Равнодушие</label>
+                    <label><input type="radio" name="q5" value="c"> Мужество и желание защищать людей</label>
+                    <label><input type="radio" name="q5" value="d"> Стремление избегать тренировок</label>
+                </div>
+
+                <div class="quiz-buttons">
+                    <button type="button" id="quizPrev">← Назад</button>
+                    <button type="button" id="quizNext">Далее →</button>
+                    <button type="submit" id="quizCheck" hidden>
+                        Проверить ответы
+                    </button>
+                </div>
+            </form>
+
+            <div class="quiz-result" id="quizResult" aria-live="polite"></div>
+
+            <p style="text-align:center;">
+                <button type="button" id="quizRetry" hidden>
+                    Пройти ещё раз
+                </button>
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>🔥 Кёджуро Ренгоку — Пламенный столп 🔥</p>
+        <p>Сайт, посвящённый аниме «Клинок, рассекающий демонов»</p>
+    </footer>
+
+    <script>
+        // Игра «Пламенный удар»
+        (() => {
+            const arena = document.getElementById("gameArena");
+            const target = document.getElementById("demonTarget");
+            const startButton = document.getElementById("gameStart");
+            const scoreText = document.getElementById("gameScore");
+            const timeText = document.getElementById("gameTime");
+            const message = document.getElementById("gameMessage");
+
+            let score = 0;
+            let time = 30;
+            let timer = null;
+            let playing = false;
+
+            function moveTarget() {
+                const maxX = arena.clientWidth - target.offsetWidth;
+                const maxY = arena.clientHeight - target.offsetHeight;
+
+                target.style.left =
+                    Math.max(0, Math.random() * maxX) + "px";
+                target.style.top =
+                    Math.max(0, Math.random() * maxY) + "px";
+                target.style.transform = "none";
+            }
+
+            startButton.addEventListener("click", () => {
+                clearInterval(timer);
+
+                score = 0;
+                time = 30;
+                playing = true;
+
+                scoreText.textContent = score;
+                timeText.textContent = time;
+                message.textContent = "Атакуй демона!";
+                target.hidden = false;
+                startButton.disabled = true;
+
+                moveTarget();
+
+                timer = setInterval(() => {
+                    time--;
+                    timeText.textContent = time;
+
+                    if (time <= 0) {
+                        clearInterval(timer);
+                        playing = false;
+                        target.hidden = true;
+                        startButton.disabled = false;
+                        message.textContent =
+                            "🔥 Игра окончена! Твои очки: " + score;
+                    }
+                }, 1000);
+            });
+
+            target.addEventListener("click", () => {
+                if (!playing) return;
+
+                score++;
+                scoreText.textContent = score;
+                moveTarget();
+            });
+        })();
+
+        // Викторина по Ренгоку
+        (() => {
+            const form = document.getElementById("quizForm");
+            const questions = [
+                ...document.querySelectorAll("#rengokuQuiz .quiz-question")
+            ];
+
+            const progress = document.getElementById("quizProgress");
+            const prev = document.getElementById("quizPrev");
+            const next = document.getElementById("quizNext");
+            const check = document.getElementById("quizCheck");
+            const result = document.getElementById("quizResult");
+            const retry = document.getElementById("quizRetry");
+
+            const answers = {
+                q1: "b",
+                q2: "c",
+                q3: "d",
+                q4: "a",
+                q5: "c"
+            };
+
+            let current = 0;
+
+            function showQuestion(index) {
+                current = index;
+
+                questions.forEach((question, i) => {
+                    question.classList.toggle("active", i === current);
+                });
+
+                progress.textContent =
+                    `Вопрос ${current + 1} из ${questions.length}`;
+
+                prev.disabled = current === 0;
+                next.hidden = current === questions.length - 1;
+                check.hidden = current !== questions.length - 1;
+            }
+
+            prev.addEventListener("click", () => {
+                if (current > 0) showQuestion(current - 1);
+            });
+
+            next.addEventListener("click", () => {
+                if (current < questions.length - 1) {
+                    showQuestion(current + 1);
+                }
+            });
+
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                let score = 0;
+                let unanswered = -1;
+
+                for (let i = 0; i < questions.length; i++) {
+                    const name = "q" + (i + 1);
+                    const selected = form.querySelector(
+                        `input[name="${name}"]:checked`
+                    );
+
+                    if (!selected) {
+                        unanswered = i;
+                        break;
+                    }
+
+                    if (selected.value === answers[name]) {
+                        score++;
+                    }
+                }
+
+                if (unanswered !== -1) {
+                    showQuestion(unanswered);
+                    progress.textContent += " — выбери ответ!";
+                    return;
+                }
+
+                form.hidden = true;
+                progress.textContent = "Викторина завершена!";
+
+                result.textContent =
+                    `🔥 Твой результат: ${score} из 5! ` +
+                    (score === 5
+                        ? "Идеально! Настоящий Пламенный столп!"
+                        : score >= 3
+                            ? "Отлично! Ты хорошо знаешь Ренгоку!"
+                            : "Продолжай тренироваться, как охотник на демонов!");
+
+                retry.hidden = false;
+            });
+
+            retry.addEventListener("click", () => {
+                form.reset();
+                form.hidden = false;
+                result.textContent = "";
+                retry.hidden = true;
+                showQuestion(0);
+            });
+
+            showQuestion(0);
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,648 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff3d2;
+    color: #5b210d;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовки */
+
+h1 {
+    text-align: center;
+    color: #d93612;
+    font-size: 42px;
+    margin: 30px 15px 20px;
+    text-shadow: 2px 2px 0 #ffc928;
+}
+
+h2 {
+    text-align: center;
+    color: #c93612;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Верхнее меню */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #ffd166;
+    border-bottom: 3px solid #e64b13;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #dc3512;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #ff9d00;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.menu a:hover {
+    background-color: #f26b00;
+    transform: translateY(-2px);
+}
+
+/* Картинка и цитата на главной странице */
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.hero img {
+    width: 330px;
+    height: 230px;
+    object-fit: cover;
+    margin: 0;
+    border: 3px solid #e65b16;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(180, 60, 10, 0.3);
+}
+
+.quote {
+    width: 300px;
+    padding: 25px;
+    background-color: #ffe7a3;
+    border: 2px solid #f29a00;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(180, 70, 0, 0.2);
+}
+
+.quote p {
+    color: #8f2b0c;
+    font-size: 23px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.quote span {
+    color: #d94a0b;
+    font-weight: bold;
+}
+
+/* Таблица основной информации */
+
+table {
+    width: 80%;
+    max-width: 1000px;
+    margin: 25px auto;
+    border-collapse: collapse;
+    background-color: #fffaf0;
+    border: 3px solid #f28a00;
+    box-shadow: 0 3px 10px rgba(180, 70, 0, 0.2);
+}
+
+caption {
+    font-size: 26px;
+    font-weight: bold;
+    color: #c93612;
+    margin-bottom: 15px;
+}
+
+th {
+    width: 25%;
+    padding: 14px;
+    text-align: left;
+    background-color: #ffbd19;
+    color: #65200d;
+    border: 1px solid #f28a00;
+    font-size: 16px;
+}
+
+td {
+    padding: 14px;
+    background-color: #fffdf8;
+    border: 1px solid #f28a00;
+    font-size: 16px;
+}
+
+tr:hover td {
+    background-color: #fff0bd;
+}
+
+/* Списки и ссылки */
+
+ul {
+    padding: 0;
+    margin: 20px auto;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin: 8px;
+}
+
+a {
+    color: #b52b0b;
+}
+
+.menu a {
+    color: white;
+}
+
+/* Страница внешнего вида */
+
+.appearance {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 35px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto 50px;
+}
+
+.appearance img {
+    display: block;
+    width: 550px;
+    max-width: 60%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    margin: 0;
+    padding: 8px;
+    flex-shrink: 0;
+    background-color: #1a1a1a;
+    border: 3px solid #ff5a1f;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(255, 80, 20, 0.3);
+}
+
+.appearance-info {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 25px;
+    background-color: #fffaf0;
+    border: 2px solid #f28a00;
+    border-radius: 15px;
+}
+
+.appearance-info h2 {
+    text-align: left;
+    font-size: 24px;
+    color: #d93612;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.appearance-info p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.appearance-info .features {
+    padding-left: 25px;
+    text-align: left;
+}
+
+.appearance-info .features li {
+    display: list-item;
+    list-style: disc;
+    margin: 10px 0;
+    color: #7a2b0c;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffd166;
+    color: #6a210d;
+    border-top: 3px solid #e64b13;
+    font-weight: bold;
+}
+
+footer p {
+    margin: 5px;
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .menu {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .menu a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .hero {
+        gap: 20px;
+    }
+
+    .hero img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    th,
+    td {
+        padding: 9px;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .appearance {
+        flex-direction: column;
+        align-items: center;
+        width: 92%;
+    }
+
+    .appearance img {
+        width: 100%;
+        max-width: 380px;
+        max-height: none;
+    }
+
+    .appearance-info {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .appearance-info h2 {
+        font-size: 22px;
+    }
+}
+
+.fullscreen-image {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fullscreen-image:fullscreen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #fff3d2;
+}
+body:has(.role-page) {
+    background-color: #fff3d2;
+    color: #5b210d;
+    font-family: "Compact", "Arial Narrow", sans-serif;
+}
+
+body:has(.role-page) .role-card {
+    background-color: #fffaf0;
+    border: 3px solid #f28a00;
+    border-radius: 15px;
+    color: #5b210d;
+}
+
+body:has(.role-page) h1,
+body:has(.role-page) .role-card h2 {
+    color: #d93612;
+    text-shadow: 2px 2px 0 #ffc928;
+}
+
+body:has(.role-page) .role-card p,
+body:has(.role-page) .role-card li {
+    color: #5b210d;
+    font-family: "Compact", "Arial Narrow", sans-serif;
+    line-height: 1.6;
+}
+
+body:has(.role-page) .role-quote {
+    color: #d93612 !important;
+}
+body:has(.role-page) {
+    background-color: #fff3d2;
+    color: #5b210d;
+    font-family: "Compact", "Arial Narrow", sans-serif;
+}
+
+.role-page {
+    width: 85%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.role-page > h1 {
+    color: #d93612;
+    text-align: center;
+    font-size: 42px;
+    text-shadow: 2px 2px 0 #ffc928;
+    margin-bottom: 30px;
+}
+
+.role-card {
+    background-color: #fffaf0;
+    border: 3px solid #f28a00;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(180, 70, 0, 0.2);
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.role-card h2 {
+    color: #d93612;
+    font-size: 30px;
+    text-shadow: 1px 1px 0 #ffc928;
+}
+
+.role-card p,
+.role-card li {
+    color: #5b210d;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.role-card li {
+    margin: 10px 0;
+}
+
+/* Текст и картинка рядом */
+.role-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.role-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Место для картинки */
+.role-image {
+    flex: 0 0 300px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #f28a00;
+    border-radius: 12px;
+    background-color: #fff3d2;
+    overflow: hidden;
+}
+
+.role-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.role-quote {
+    color: #d93612 !important;
+    text-align: center;
+    font-size: 25px !important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Для телефона */
+@media (max-width: 750px) {
+    .role-page {
+        width: 92%;
+    }
+
+    .role-layout {
+        flex-direction: column;
+    }
+
+    .role-image {
+        flex: auto;
+        width: 100%;
+        max-width: 350px;
+        min-height: 250px;
+    }
+
+    .role-page > h1 {
+        font-size: 32px;
+    }
+}
+body:has(.role-page) {
+    background-color: #fff3d2;
+    color: #5b210d;
+    font-family: "Compact", "Arial Narrow", sans-serif;
+}
+
+.role-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.role-page > h1 {
+    color: #d93612;
+    text-align: center;
+    font-size: 42px;
+    text-shadow: 2px 2px 0 #ffc928;
+}
+
+.role-card {
+    background-color: #fffaf0;
+    border: 3px solid #f28a00;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(180, 70, 0, 0.2);
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.role-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.role-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.role-card h2 {
+    color: #d93612;
+    font-size: 28px;
+    text-shadow: 1px 1px 0 #ffc928;
+}
+
+.role-card p,
+.role-card li {
+    color: #5b210d;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.role-card li {
+    margin-bottom: 8px;
+}
+
+.role-quote {
+    color: #d93612 !important;
+    font-size: 25px !important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Картинка справа */
+.role-image {
+    flex: 0 0 40%;
+    max-width: 420px;
+    border: 2px solid #f28a00;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff3d2;
+}
+
+.role-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Для маленьких экранов */
+@media (max-width: 750px) {
+    .role-page {
+        width: 92%;
+    }
+
+    .role-layout {
+        flex-direction: column;
+    }
+
+    .role-image {
+        flex: auto;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .role-page > h1 {
+        font-size: 32px;
+    }
+}
+.flame-forms {
+    display: block;
+    padding-left: 25px;
+}
+
+.flame-forms li {
+    display: list-item;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.rengoku-quiz {
+    max-width: 800px;
+    margin: 35px auto;
+    padding: 25px;
+    background: #fffaf0;
+    color: #5b210d;
+    border: 3px solid #f28a00;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(180, 70, 0, 0.2);
+    font-family: "Compact", "Arial Narrow", sans-serif;
+}
+
+.rengoku-quiz h2 {
+    color: #d93612;
+    text-align: center;
+    text-shadow: 1px 1px #ffc928;
+}
+
+.quiz-progress {
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.quiz-question {
+    display: none;
+    padding: 18px;
+    border: 2px solid #ffd166;
+    border-radius: 12px;
+}
+
+.quiz-question.active {
+    display: block;
+}
+
+.quiz-question p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quiz-question label {
+    display: block;
+    padding: 9px;
+    cursor: pointer;
+}
+
+.quiz-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.rengoku-quiz button {
+    padding: 12px 20px;
+    background: #dc3512;
+    color: white;
+    border: 2px solid #f28a00;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rengoku-quiz button:hover {
+    background: #a9270d;
+}
+
+.rengoku-quiz button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.quiz-result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #d93612;
+}
+
+@media (max-width: 600px) {
+    .rengoku-quiz {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+}

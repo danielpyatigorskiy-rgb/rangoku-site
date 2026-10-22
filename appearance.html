@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кёджуро Ренгоку — Внешний вид</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="menu">
+        <a href="index2.html">🔥 Основная информация</a>
+        <a href="appearance.html">🔥 Внешний вид</a>
+        <a href="role.html">🔥 Роль и техники</a>
+    </nav>
+
+    <h1>Внешний вид Кёджуро Ренгоку</h1>
+
+    <div class="appearance">
+
+    <img
+        src="Rangoku.png"
+        alt="Ренгоку"
+        class="fullscreen-image"
+        onclick="if (!document.fullscreenElement) {
+            this.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }">
+        
+        <div class="appearance-info">
+
+            <h2>Общее описание</h2>
+
+            <p>
+                Кёджуро Ренгоку — высокий и крепкий молодой мужчина
+                с яркой и запоминающейся внешностью.
+            </p>
+
+            <h2>Волосы</h2>
+
+            <p>
+                Его волосы жёлтого цвета с красными кончиками,
+                напоминающими языки пламени.
+            </p>
+
+            <h2>Глаза</h2>
+
+            <p>
+                У Ренгоку золотистые глаза с красноватыми деталями.
+                Его взгляд выражает уверенность и решительность.
+            </p>
+
+            <h2>Одежда</h2>
+
+            <p>
+                Он носит форму охотника на демонов и белый плащ
+                с огненным узором по краям.
+            </p>
+
+            <h2>Особенности</h2>
+
+            <ul class="features">
+                <li>Яркие жёлто-красные волосы</li>
+                <li>Золотистые глаза</li>
+                <li>Белый плащ с пламенным узором</li>
+                <li>Меч Ничирин с огненным дизайном</li>
+            </ul>
+
+        </div>
+
+    </div>
+<!-- Игра: Пламенный удар -->
+<style>
+.flame-game {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fffaf0;
+    border: 3px solid #f28a00;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(180, 70, 0, 0.2);
+    color: #5b210d;
+    text-align: center;
+    font-family: "Compact", "Arial Narrow", sans-serif;
+}
+
+.flame-game h2 {
+    color: #d93612;
+    font-size: 32px;
+    text-shadow: 1px 1px #ffc928;
+}
+
+.flame-game p {
+    font-size: 18px;
+}
+
+.flame-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.flame-button {
+    background: #dc3512;
+    color: white;
+    border: 2px solid #f28a00;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.flame-button:hover {
+    background: #a9250b;
+}
+
+.flame-arena {
+    position: relative;
+    height: 320px;
+    max-width: 650px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 3px solid #f28a00;
+    border-radius: 14px;
+    background: radial-gradient(circle, #fff3d2, #ffd166);
+}
+
+.flame-target {
+    position: absolute;
+    display: none;
+    width: 76px;
+    height: 76px;
+    border: 0;
+    border-radius: 50%;
+    background: #dc3512;
+    font-size: 42px;
+    cursor: pointer;
+    box-shadow: 0 0 18px #ff7b00;
+    user-select: none;
+}
+
+.flame-target:active {
+    transform: scale(0.85);
+}
+
+#flameMessage {
+    min-height: 28px;
+    font-weight: bold;
+    color: #d93612;
+}
+
+@media (max-width: 600px) {
+    .flame-game {
+        margin: 20px 8px;
+        padding: 15px;
+    }
+
+    .flame-arena {
+        height: 280px;
+    }
+}
+</style>
+
+<section class="flame-game">
+    <h2>🔥 Пламенный удар</h2>
+    <p>
+        Почувствуй силу Пламенного столпа!
+        Нажимай на демонов, чтобы побеждать их.
+        У тебя есть 30 секунд!
+    </p>
+
+    <div class="flame-stats">
+        <span>⚔️ Очки: <span id="flameScore">0</span></span>
+        <span>⏱️ Время: <span id="flameTime">30</span></span>
+    </div>
+
+    <button class="flame-button" id="flameStart">
+        Начать игру
+    </button>
+
+    <div class="flame-arena" id="flameArena">
+        <button class="flame-target" id="flameTarget"
+            aria-label="Атаковать демона">👹</button>
+    </div>
+
+    <p id="flameMessage" aria-live="polite">
+        Нажми «Начать игру», чтобы сражаться!
+    </p>
+</section>
+
+<script>
+(() => {
+    const arena = document.getElementById("flameArena");
+    const target = document.getElementById("flameTarget");
+    const startButton = document.getElementById("flameStart");
+    const scoreDisplay = document.getElementById("flameScore");
+    const timeDisplay = document.getElementById("flameTime");
+    const message = document.getElementById("flameMessage");
+
+    let score = 0;
+    let timeLeft = 30;
+    let timer = null;
+    let playing = false;
+
+    function moveTarget() {
+        const maxX = arena.clientWidth - target.offsetWidth;
+        const maxY = arena.clientHeight - target.offsetHeight;
+
+        target.style.left = Math.floor(Math.random() * (maxX + 1)) + "px";
+        target.style.top = Math.floor(Math.random() * (maxY + 1)) + "px";
+    }
+
+    function endGame() {
+        playing = false;
+        clearInterval(timer);
+        target.style.display = "none";
+        startButton.disabled = false;
+        startButton.textContent = "Играть снова";
+        message.textContent = "🔥 Время вышло! Твой результат: " + score + " очков!";
+    }
+
+    startButton.addEventListener("click", () => {
+        clearInterval(timer);
+
+        score = 0;
+        timeLeft = 30;
+        playing = true;
+
+        scoreDisplay.textContent = score;
+        timeDisplay.textContent = timeLeft;
+        message.textContent = "Атакуй демонов!";
+        startButton.disabled = true;
+        startButton.textContent = "Игра идёт...";
+        target.style.display = "block";
+        moveTarget();
+
+        timer = setInterval(() => {
+            timeLeft--;
+            timeDisplay.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                endGame();
+            }
+        }, 1000);
+    });
+
+    target.addEventListener("click", () => {
+        if (!playing) return;
+
+        score++;
+        scoreDisplay.textContent = score;
+        message.textContent = "🔥 Пламенный удар! +1 очко";
+        moveTarget();
+    });
+})();
+</script>
+```
+    <footer>
+        <p>© 2026 Даниэль Пятигорский</p>
+    </footer>
+
+</body>
+</html>
